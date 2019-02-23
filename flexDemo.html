@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FLEX demo</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        section{
+            background: purple;
+            color: white;
+        }
+        .box1{
+            width: 400px;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .item1{
+            width: 100px;
+            height: 30px;
+            margin-right: 30px;
+            margin-bottom: 10px;
+            background: #ff6e04;
+        }
+        .item2{
+            width: 40px;
+            height: 40px;
+            margin-right: 30px;
+            margin-bottom: 10px;
+            background: #ff6e04;
+        }
+        .item2:nth-child(2) {
+            align-self: flex-start;
+        }
+        .item2:nth-child(4) {
+            align-self: flex-start;
+        }
+        .box2{
+            width: 400px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+        .box3{
+            width: 400px;
+            height: 100px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h3>容器属性：flex-flow: flex-direction || flex-wrap</h3>
+        <p>决定主轴的方向: flex-direction: row | row-reverse | column | column-reverse;</p>
+        <p>换行: flex-wrap: nowrap | wrap | wrap-reverse;</p>
+        <div class="box1">
+            <div class="item1">1</div>
+            <div class="item1">2</div>
+            <div class="item1">3</div>
+            <div class="item1">4</div>
+        </div>
+    </section>
+    <section>
+        <h3>对齐方式</h3>
+        <p>主轴：justify-content: flex-start | flex-end | center | space-between | space-around;</p>
+        <div class="box2">
+            <div class="item1">1</div>
+            <div class="item1">2</div>
+            <div class="item1">3</div>
+            <div class="item1">4</div>
+        </div>
+        <p>交叉轴：align-items: flex-start | flex-end | center | baseline | stretch;</p>
+        <div class="box3">
+            <div class="item2">1</div>
+            <div class="item2">2</div>
+            <div class="item2">3</div>
+            <div class="item2">4</div>
+        </div>
+    </section>
+    <section>
+        <h3>项目属性</h3>
+        <p>flex-grow属性定义项目的放大比例，默认为0</p>
+        <div class="box1">
+            <div class="item1" style="width:5px;flex-grow:1">1</div>
+            <div class="item1" style="width:5px;flex-grow:2">2</div>
+            <div class="item1" style="width:5px;flex-grow:3">3</div>
+        </div>
+        <p>flex-shrink属性定义了项目的缩小比例，默认为1</p>
+        <div class="box1" style="flex-flow: nowrap">
+            <div class="item1" style="width:200px;flex-shrink:0">1</div>
+            <div class="item1" style="flex-shrink:1">2</div>
+            <div class="item1" style="flex-shrink:2">3</div>
+        </div>
+        <p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间</p>
+        <div class="box1" style="flex-flow: nowrap">
+            <div class="item1" style="flex-basis:60px">1</div>
+            <div class="item1" style="flex-basis:80px">2</div>
+            <div class="item1" style="flex-basis:100px">3</div>
+        </div>
+        <p>align-self属性允许单个项目有与其他项目不一样的对齐方式</p>
+        <div class="box3">
+            <div class="item1" style="align-self:flex-start">1</div>
+            <div class="item1" style="align-self:auto">2</div>
+            <div class="item1" style="align-self:auto">3</div>
+        </div>
+    </section>
+</body>
+</html>
